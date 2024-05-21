@@ -2,7 +2,6 @@ const emailField = document.getElementById('email');
 const passwordField = document.getElementById('password');
 const buttonField = document.getElementById('submit');
 
-//const email = document.getElementById('email').value;
 
 class EmptyField extends Error {
     constructor(field) {
@@ -43,11 +42,9 @@ const formData = {
 };
   
 function isValidEmail(emailField) {
-    const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-   // const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    
+    const EMAIL_REGEXP = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return EMAIL_REGEXP.test(emailField);
-    
+
     }
  
 
@@ -85,7 +82,7 @@ buttonField.addEventListener('click', () => {
 
 
  try {
-    if  (!isValidEmail(emailField)) throw new DogOut('without dog');
+    if  (!isValidEmail(emailField.value)) throw new DogOut('without dog');
  } catch (e) {
     alert(e)
  }
